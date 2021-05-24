@@ -15,37 +15,37 @@ class Form extends Component {
         }
         this.handleSubmit = this.handleSubmit.bind(this)
     }
-    namahandler = (event) => {
+    namahandler = e => {
         this.setState({
-            Nama: event.target.value
+            Nama: e.target.value
         })
     }
-    usernamehandler = (event) => {
+    usernamehandler = e => {
         this.setState({
-            username: event.target.value
+            username: e.target.value
         })
     }
-    passwordhandler = (event) => {
+    passwordhandler = e => {
         this.setState({
-            password: event.target.value
-        })
-    }
-
-    repasshandler = (event) => {
-        this.setState({
-            repassword: event.target.value
+            password: e.target.value
         })
     }
 
-    handleSubmit = (event) => {
+    repasshandler = e => {
+        this.setState({
+            repassword: e.target.value
+        })
+    }
+
+    handleSubmit = e => {
         if (!this.state.Nama.trim()) {
             errors.nama = "Nama tidak boleh kosong";
         }
         if (!this.state.username.trim()) {
             errors.username = "Username tidak boleh kosong";
         } else if (this.state.username) {
-            for (const uDummy of usernameDummy) {
-                if (uDummy === this.state.username) {
+            for (const user of usernameDummy) {
+                if (user === this.state.username) {
                     errors.username = "Username sudah dipakai";
                 }
             }
@@ -58,9 +58,9 @@ class Form extends Component {
         }
 
         if (!this.state.repassword) {
-            errors.repassword = "Confirmation password tidak boleh kosong";
+            errors.repassword = "Password tidak boleh kosong";
         } else if (this.state.password !== this.state.repassword) {
-            errors.repassword = "Confirmation password tidak cocok";
+            errors.repassword = "Password tidak cocok";
         }
         if (Object.keys(errors).length === 0) {
             errors.berhasil = "Berhasil Registrasi"
@@ -77,13 +77,13 @@ class Form extends Component {
             password: '',
             repassword: "",
         })
-        event.preventDefault()
+        e.preventDefault()
 
     }
 
     render() {
         return (
-            <div className="container" style={{ width: '100%', height: '100%', padding: 300, backgroundColor: '#F8DA56' }}>
+            <div className="container" style={{ paddingTop: 200, paddingBottom: 200, backgroundColor: '#F8DA56' }}>
                 <div class="d-flex justify-content-center">
                     <div>
                         <div className="card" style={{ backgroundColor: '#EEEEEE' }}>
@@ -92,23 +92,24 @@ class Form extends Component {
                             <div className="card-body">
                                 <h2>Registrasi</h2>
                                 <form className="form" onSubmit={this.handleSubmit}>
-                                    <input style={{ marginTop: 25, backgroundColor: '#D3D3D3', borderWidth: 0, padding: 5, width: 300 }} type="text" value={this.state.Nama} onChange={this.namahandler} placeholder="Nama" id="Nama" /><br />
-                                    
-                                    <p style={{ position: 'absolute', marginTop: 22, marginLeft: 289, color: 'red', fontSize: 18 }}>*</p>
-                                    <input style={{ marginTop: 25, backgroundColor: '#D3D3D3', borderWidth: 0, padding: 5, width: 300 }} type="text" value={this.state.username} onChange={this.usernamehandler} placeholder="Username" id="username" /><br />
-                                    {errors.username && <p style={{ color: 'red', fontSize: 12, marginBottom: -18 }}>{errors.username}</p>}
-                                    
-                                    <p style={{ position: 'absolute', marginTop: 22, marginLeft: 289, color: 'red', fontSize: 18 }}>*</p>
-                                    <input style={{ marginTop: 25, backgroundColor: '#D3D3D3', borderWidth: 0, padding: 5, width: 300 }} type="password" value={this.state.password} onChange={this.passwordhandler} placeholder="Password" id="password" /><br />
-                                    {errors.password && <p style={{ color: 'red', fontSize: 12, marginBottom: -18 }}>{errors.password}</p>}
-                                    
-                                    <p style={{ position: 'absolute', marginTop: 22, marginLeft: 289, color: 'red', fontSize: 18 }}>*</p>
-                                    <input style={{ marginTop: 25, backgroundColor: '#D3D3D3', borderWidth: 0, padding: 5, width: 300 }} type="password" value={this.state.repassword} onChange={this.repasshandler} placeholder="Repassword" id="repassword" /><br />
-                                    {errors.repassword && <p style={{ color: 'red', fontSize: 12, marginBottom: -18 }}>{errors.repassword}</p>}
-                                    
-                                    <button className="btn btn-primary" style={{ marginTop: 25, width: 300, backgroundColor: '#23A855', borderWidth: 0 }} type="submit" value="REGISTER" id="btnsubmit">Register</button>
+                                    <input style={{ marginTop: 25, backgroundColor: '#D3D3D3', borderWidth: 0, padding: 5, width: 400 }} type="text" value={this.state.Nama} onChange={this.namahandler} placeholder="Nama" id="Nama" /><br />
+
+                                    <p style={{ position: 'absolute', marginTop: 22, marginLeft: 389, color: 'red', fontSize: 18 }}>*</p>
+                                    <input style={{ marginTop: 25, backgroundColor: '#D3D3D3', borderWidth: 0, padding: 5, width: 400 }} type="text" value={this.state.username} onChange={this.usernamehandler} placeholder="Username" id="username" /><br />
+                                    {errors.username && <p style={{ position: 'absolute', color: 'red', fontSize: 12, marginBottom: -18 }}>{errors.username}</p>}
+
+                                    <p style={{ position: 'absolute', marginTop: 22, marginLeft: 389, color: 'red', fontSize: 18 }}>*</p>
+                                    <input style={{ marginTop: 25, backgroundColor: '#D3D3D3', borderWidth: 0, padding: 5, width: 400 }} type="password" value={this.state.password} onChange={this.passwordhandler} placeholder="Password" id="password" /><br />
+                                    {errors.password && <p style={{ position: 'absolute', color: 'red', fontSize: 12, marginBottom: -18 }}>{errors.password}</p>}
+
+                                    <p style={{ position: 'absolute', marginTop: 22, marginLeft: 389, color: 'red', fontSize: 18 }}>*</p>
+                                    <input style={{ marginTop: 25, backgroundColor: '#D3D3D3', borderWidth: 0, padding: 5, width: 400 }} type="password" value={this.state.repassword} onChange={this.repasshandler} placeholder="Repassword" id="repassword" /><br />
+                                    {errors.repassword && <p style={{ position: 'absolute', color: 'red', fontSize: 12, marginBottom: -18 }}>{errors.repassword}</p>}
+
+                                    <button className="btn btn-primary" style={{ marginTop: 25, width: 400, backgroundColor: '#23A855', borderWidth: 0 }} type="submit" value="REGISTER" id="btnsubmit">Register</button>
                                 </form>
                                 {errors.berhasil && <p>{errors.berhasil}</p>}
+                                <p style={{ marginTop: 25 }}>Back to <a href="#">Login</a></p>
                             </div>
                         </div>
                     </div>

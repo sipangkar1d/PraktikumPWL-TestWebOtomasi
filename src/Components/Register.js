@@ -8,7 +8,7 @@ class Form extends Component {
         super(props)
 
         this.state = {
-            Nama: "",
+            nama: "",
             username: "",
             password: "",
             repassword: "",
@@ -17,7 +17,7 @@ class Form extends Component {
     }
     namahandler = e => {
         this.setState({
-            Nama: e.target.value
+            nama: e.target.value
         })
     }
     usernamehandler = e => {
@@ -38,8 +38,8 @@ class Form extends Component {
     }
 
     handleSubmit = e => {
-        if (!this.state.Nama.trim()) {
-            errors.nama = "Nama tidak boleh kosong";
+        if (!this.state.nama.trim()) {
+            errors.nama = "nama tidak boleh kosong";
         }
         if (!this.state.username.trim()) {
             errors.username = "Username tidak boleh kosong";
@@ -72,7 +72,7 @@ class Form extends Component {
             console.log(this.state);
         }
         this.setState({
-            Nama: "",
+            nama: "",
             username: "",
             password: '',
             repassword: "",
@@ -87,26 +87,26 @@ class Form extends Component {
                 <div class="d-flex justify-content-center">
                     <div>
                         <div className="card" style={{ backgroundColor: '#EEEEEE' }}>
-                            <img src={Icon} alt="icon-profile" style={{ width: 35, height: 35, position: 'absolute', alignSelf: 'center', marginTop: -18 }} />
-                            <div style={{ width: 50, height: 50, backgroundColor: '#23A855', borderWidth: 0, borderRadius: 60, alignSelf: 'center', marginTop: -25, marginBottom: -10 }}></div>
+                            <img src={Icon} alt="icon-profile" style={{ width: 45, height: 45, position: 'absolute', alignSelf: 'center', marginTop: -23 }} />
+                            <div style={{ width: 70, height: 70, backgroundColor: '#23A855', borderWidth: 0, borderRadius: 60, alignSelf: 'center', marginTop: -35, marginBottom: -10, marginLeft: 3 }}></div>
                             <div className="card-body">
                                 <h2>Registrasi</h2>
-                                <form className="form" onSubmit={this.handleSubmit}>
-                                    <input style={{ marginTop: 25, backgroundColor: '#D3D3D3', borderWidth: 0, padding: 5, width: 400 }} type="text" value={this.state.Nama} onChange={this.namahandler} placeholder="Nama" id="Nama" /><br />
+                                <form className="form" onSubmit={this.handleSubmit} style={{padding: 10}}>
+                                    <input style={{ marginTop: 25, backgroundColor: '#D3D3D3', borderWidth: 0, padding: 5, paddingLeft: 10, paddingRight: 10, width: 400 }} type="text" value={this.state.nama} onChange={this.namahandler} placeholder="Nama" id="nama" /><br />
 
                                     <p style={{ position: 'absolute', marginTop: 22, marginLeft: 389, color: 'red', fontSize: 18 }}>*</p>
-                                    <input style={{ marginTop: 25, backgroundColor: '#D3D3D3', borderWidth: 0, padding: 5, width: 400 }} type="text" value={this.state.username} onChange={this.usernamehandler} placeholder="Username" id="username" /><br />
+                                    <input style={{ marginTop: 25, backgroundColor: '#D3D3D3', borderWidth: 0, padding: 5, paddingLeft: 10, paddingRight: 10, width: 400 }} type="text" value={this.state.username} onChange={this.usernamehandler} placeholder="Username" id="username" /><br />
                                     {errors.username && <p style={{ position: 'absolute', color: 'red', fontSize: 12, marginBottom: -18 }}>{errors.username}</p>}
 
                                     <p style={{ position: 'absolute', marginTop: 22, marginLeft: 389, color: 'red', fontSize: 18 }}>*</p>
-                                    <input style={{ marginTop: 25, backgroundColor: '#D3D3D3', borderWidth: 0, padding: 5, width: 400 }} type="password" value={this.state.password} onChange={this.passwordhandler} placeholder="Password" id="password" /><br />
+                                    <input style={{ marginTop: 25, backgroundColor: '#D3D3D3', borderWidth: 0, padding: 5, paddingLeft: 10, paddingRight: 10, width: 400 }} type="password" value={this.state.password} onChange={this.passwordhandler} placeholder="Password" id="password" /><br />
                                     {errors.password && <p style={{ position: 'absolute', color: 'red', fontSize: 12, marginBottom: -18 }}>{errors.password}</p>}
 
                                     <p style={{ position: 'absolute', marginTop: 22, marginLeft: 389, color: 'red', fontSize: 18 }}>*</p>
-                                    <input style={{ marginTop: 25, backgroundColor: '#D3D3D3', borderWidth: 0, padding: 5, width: 400 }} type="password" value={this.state.repassword} onChange={this.repasshandler} placeholder="Repassword" id="repassword" /><br />
+                                    <input style={{ marginTop: 25, backgroundColor: '#D3D3D3', borderWidth: 0, padding: 5, paddingLeft: 10, paddingRight: 10, width: 400 }} type="password" value={this.state.repassword} onChange={this.repasshandler} placeholder="Repassword" id="repassword" /><br />
                                     {errors.repassword && <p style={{ position: 'absolute', color: 'red', fontSize: 12, marginBottom: -18 }}>{errors.repassword}</p>}
 
-                                    <button className="btn btn-primary" style={{ marginTop: 25, width: 400, backgroundColor: '#23A855', borderWidth: 0 }} type="submit" value="REGISTER" id="btnsubmit">Register</button>
+                                    <button className="btn btn-primary" style={{ marginTop: 25, width: 400, backgroundColor: '#23A855', borderWidth: 0 }} type="submit" value="REGISTER" id="submit">Register</button>
                                 </form>
                                 {errors.berhasil && <p>{errors.berhasil}</p>}
                                 <p style={{ marginTop: 25 }}>Back to <a href="#">Login</a></p>

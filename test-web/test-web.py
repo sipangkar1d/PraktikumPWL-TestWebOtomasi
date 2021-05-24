@@ -11,6 +11,7 @@ obj = json.loads(json_data)
 PATH = "D:/Sipangkar/Kuliah/PWL/chromedriver.exe"
 driver = webdriver.Chrome(PATH)
 driver.get("https://prakpwl-minggu3-118140080.herokuapp.com/")
+
 nama_input = driver.find_element_by_id('nama')
 username_input = driver.find_element_by_id('username')
 password_input = driver.find_element_by_id('password')

@@ -47,7 +47,7 @@
       "password": "sipangkar12",
       "repassword": ""
     },
-    "expected": "Password tidak boleh kosong"
+    "expected": "Re-password tidak boleh kosong"
   },
   {
     "testcase_name": "Password konfirmasi tidak cocok",
@@ -57,7 +57,7 @@
       "password": "sipangkar12",
       "repassword": "sipangkar123"
     },
-    "expected": "Password tidak cocok"
+    "expected": "Password dan Re-password tidak cocok"
   },
   {
     "testcase_name": "Seluruh field terisi dengan benar",
